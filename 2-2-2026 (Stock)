@@ -1,0 +1,39 @@
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+https://leetcode.com/problems/move-zeroes/description/
+
+Longest ZigZag SubArray in an Array-
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr= {12,13,1,5,4,7,8,10,10,11};
+		int result;
+		System.out.println(zigzag(arr));
+	}
+	
+	public static int zigzag(int[] arr){
+	    int max=1;
+	    int len=1;
+	    for(int i=0;i<arr.length-1;i++){
+	        if(i%2==0 && arr[i]<arr[i+1]){
+	            len++;
+	        }
+	        else if(i%2!=0 && arr[i]>arr[i+1]){
+	            len++;
+	        }
+	        else{
+	            if(len>max){
+	                max=len;
+	            }
+	            len=1;
+	        }
+	    }
+	    if(max<len){
+	        max=len;
+	    }
+	    return max;
+	}
+}
+
